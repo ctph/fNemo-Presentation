@@ -3,13 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>fNemo Webserver</title>
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
-  <h1>Hello World</h1>
-  <button onclick="sayHi()">Click Me</button>
+  <header class="navbar">
+    <div class="logo">fNemo Webserver</div>
+    <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="people.html">People</a>
+    <div class="dropdown">
+        <a href="resources.html" class="dropbtn">Resources ⬇</a>
+        <div class="dropdown-content">
+        <a>Experiments</a>
+        <a href="tool.html">Tools</a>
+        <a>Dataset</a>
+        <a>ML Models</a>
+        </div>
+    </div>
+    </div>
 
-  <script src="script.js"></script>
+  </header>
+
+    <main>
+        <div class="cow-section">
+            
+            <div class="cow-side">
+            <h2>Gut Microbiome</h2>
+            <a href="microbiome.html" class="arrow-button">⬅</a>
+            <p class="desc">756 molecules tested</p>
+            <p class="desc">20 predicting models</p>
+            <p class="desc">10 experimental protocols</p>
+            </div>
+
+            <img src="cowfNemo.jpg" alt="Cow Diagram" class="cow-img" />
+
+            <div class="cow-side">
+            <h2>Feed Additive</h2>
+            <a href="feed.html" class="arrow-button">➡</a>
+            <p class="desc">756 molecules tested</p>
+            <p class="desc">20 predicting models</p>
+            <p class="desc">10 experimental protocols</p>
+            </div>
+
+        </div>
+    </main>
+
+  <script src="js/home.js"></script>
 </body>
 </html>

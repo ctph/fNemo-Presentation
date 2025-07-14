@@ -1,0 +1,42 @@
+.tool-main {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.screenshot-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.screenshot-block {
+  width: 600px;
+  height: 450px;
+  background-color: green;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid #333;
+  color: white;
+  text-align: center;
+}
+
+.screenshot-block h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.screenshot-block p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.tool-screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
