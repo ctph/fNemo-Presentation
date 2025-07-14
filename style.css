@@ -11,40 +11,6 @@ html, body {
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* === Navbar === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: black;
-  padding: 15px 30px;
-  border-bottom: 1px solid #444;
-}
-
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-  color: white;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #00bfff;
-  text-decoration: underline;
-}
-
 /* === Main Content === */
 main {
   display: flex;

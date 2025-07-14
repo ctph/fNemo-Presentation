@@ -11,7 +11,6 @@ fetch("components/html/navbar.html")
   .then(html => {
     document.getElementById("navbar-placeholder").innerHTML = html;
 
-    // Set active link
     const path = window.location.pathname;
     document.querySelectorAll(".nav-links a").forEach(link => {
       if (path.includes(link.getAttribute("href"))) {
