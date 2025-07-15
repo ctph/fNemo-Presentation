@@ -11,8 +11,4 @@ fetch("components/html/navbar.html")
         link.classList.add("active");
       }
     });
-
-    // Override logo text for tool page
-    const logo = document.querySelector(".navbar .logo");
-    if (logo) logo.textContent = "fNemo Webserver";
   });
