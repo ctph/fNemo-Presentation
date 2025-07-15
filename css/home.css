@@ -144,7 +144,7 @@ main {
 }
 
 .site-footer a:visited {
-  color: #4da6ff; /* remove purple visited state */
+  color: #4da6ff;
 }
 
 .footer-label {
