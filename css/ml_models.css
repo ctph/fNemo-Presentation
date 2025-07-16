@@ -15,6 +15,8 @@ body {
 
 .left-column {
   flex-basis: 60%;
+  border-right: 1px solid #333;
+  padding-right: 40px;
 }
 
 .right-column {
@@ -53,6 +55,56 @@ body {
   border-color: #333;
   margin: 15px 0;
 }
+
+.merged-sidebar {
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar-image {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.sidebar-section {
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+.sidebar-section p {
+  margin: 5px 0;
+}
+
+.sidebar-list {
+  padding-left: 18px;
+  list-style-type: disc;
+  margin: 10px 0 0;
+}
+
+.sidebar-list li {
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+.box-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #4faaff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.box-link:hover {
+  text-decoration: underline;
+}
+
 
 .toc {
   margin-top: 40px;

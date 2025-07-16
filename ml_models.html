@@ -221,12 +221,41 @@ output = model.predict(inputs, enable_reasoning=False)
         </div>
 
         <div class="right-column">
-            <div class="info-box">
-            <p><strong>Deployments last month</strong><br>14,829</p>
-            <hr>
-            <p><strong>Model Details</strong><br>Parameters: 1.2B<br>Precision: FP16</p>
-            <hr>
-            <p><strong>Use Cases</strong><br>Livestock Monitoring<br>Emission Forecasting</p>
+            <div class="info-box merged-sidebar">
+
+                <div class="sidebar-section">
+                    <p class="info-title">📈 Deployments</p>
+                    <p><strong>Last month:</strong> 14,829</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <p class="info-title">⚙️ Model Details</p>
+                    <p><strong>Parameters:</strong> 1.2B</p>
+                    <p><strong>Precision:</strong> FP16</p>
+                    <p><strong>Architecture:</strong> Transformer decoder</p>
+                    <p><strong>Size:</strong> ~6.2 GB</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <p class="info-title">Inference</p>
+                    <p><strong>Formats:</strong> TorchScript, ONNX, vLLM</p>
+                    <p><strong>Latency:</strong> ~18ms avg (batch=1, A100)</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <p class="info-title">Use Cases</p>
+                    <ul class="sidebar-list">
+                        <li>Livestock Monitoring</li>
+                        <li>Emission Forecasting</li>
+                        <li>Feed Efficiency Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <p class="info-title">📦 Collections</p>
+                    <p><strong>MethaZeroX Suite</strong> (7 models)<br>Updated 5 days ago</p>
+                    <a href="#" class="box-link">View collection →</a>
+                </div>
             </div>
         </div>
     </main>
