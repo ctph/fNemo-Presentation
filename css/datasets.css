@@ -1,9 +1,49 @@
+/* Set full-page background to black */
 body {
+  background-color: black;
   margin: 0;
   padding: 0;
-  background-color: black;
+  font-family: 'Segoe UI', sans-serif;
+  color: white; /* optional: makes text visible on dark background */
+}
+
+/* Optional: Style page title */
+.page-title {
+  text-align: center;
   color: white;
-  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+/* Optional: Adjust screenshot block styling */
+.screenshot-row {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.screenshot-block {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  border: 4px solid white;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.6);
+  margin: 0 auto;
+}
+
+.tool-screenshot {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 4px solid white;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.screenshot-block h3,
+.screenshot-block p {
+  color: white;
 }
 
 /* Menu nav bar */
@@ -72,4 +112,39 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Modal image */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90vh;
+  border: 4px solid white;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
 }
