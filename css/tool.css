@@ -5,6 +5,7 @@
   align-items: center;  
   text-align: center;
   min-height: 70vh;
+  background-color: black; /* Ensure main section is black */
 }
 
 .page-title {
@@ -23,16 +24,17 @@
   flex-wrap: wrap;
   gap: 40px;
   margin-top: 40px;
+  background-color: black; /* ensure row has black background */
 }
 
 .screenshot-block {
   width: 600px;
   height: 450px;
-  background-color: #007bff;
+  background-color: black !important; /* override any blue */
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-  border: 1px solid #333;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  border: 2px solid white !important; /* white border */
   color: white;
   text-align: center;
 }
@@ -40,16 +42,19 @@
 .screenshot-block h3 {
   margin-top: 10px;
   font-size: 20px;
+  color: white;
 }
 
 .screenshot-block p {
   font-size: 14px;
   margin-top: 10px;
+  color: white;
 }
 
 .tool-screenshot {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 10px;
+  border: 2px solid white; /* white border for image */
+  box-shadow: none;
 }
