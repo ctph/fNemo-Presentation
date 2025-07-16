@@ -1,12 +1,20 @@
-fetch("components/html/navbar.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("navbar-placeholder").innerHTML = html;
+// Modal logic
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const img = document.querySelector(".tool-screenshot");
+const closeBtn = document.querySelector(".close");
 
-    const path = window.location.pathname;
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      if (path.includes(link.getAttribute("href"))) {
-        link.classList.add("active");
-      }
-    });
-  });
+img.onclick = function () {
+  modal.style.display = "block";
+  modalImg.src = this.src;
+};
+
+closeBtn.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+};
