@@ -5,3 +5,51 @@ body {
   color: white;
   font-family: Arial, sans-serif;
 }
+
+.model-layout {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 80px;
+  gap: 40px;
+}
+
+.left-column {
+  flex-basis: 60%;
+}
+
+.right-column {
+  flex-basis: 40%;
+}
+
+.model-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.org {
+  color: #999;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.model-banner {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #444;
+}
+
+.info-box {
+  background-color: #111;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 0.95em;
+  line-height: 1.6em;
+}
+
+.info-box hr {
+  border-color: #333;
+  margin: 15px 0;
+}
