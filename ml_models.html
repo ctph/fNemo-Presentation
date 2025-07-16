@@ -52,10 +52,54 @@
                 </div>
             </div>
 
-
             <div class="doc-section" id="usage">
                 <h3>How to Use</h3>
-                <p>Input: Cow feed & sensor data<br>Output: Methane ppm prediction<br>Platform: On-device or cloud API</p>
+                <p>
+                    You can use MethaZeroX for real-time or batch methane estimation using structured input data. The model is available through the <code>methazerox</code> Python package and can also be served using ONNX, TorchScript, or vLLM-compatible APIs.
+                </p>
+
+                <p><strong>Installation:</strong></p>
+                <pre><code>pip install methazerox</code></pre>
+
+                <p><strong>Example usage:</strong></p>
+                <pre><code class="language-python">
+                from methazerox import MethaZeroXModel, prepare_inputs
+
+                model = MethaZeroXModel.from_pretrained("AgriSynthAI/MethaZeroX")
+                inputs = prepare_inputs(feed_type="corn", cow_weight=620, temp_c=18.4)
+
+                prediction = model.predict(inputs)
+                print(f"Estimated CH₄ output: {prediction} ppm")
+                </code></pre>
+
+                <p><strong>Extended Features:</strong></p>
+                <ul>
+                    <li>Optional <code>enable_reasoning=True</code> flag for explainable output tracing.</li>
+                    <li>Supports <code>json</code>, <code>csv</code>, or live sensor streaming formats.</li>
+                    <li>Custom instructions supported via <code>system_config</code> (e.g. breed-specific tuning).</li>
+                </ul>
+
+                <p>
+                    For hardware deployment, use <code>torch.jit.trace()</code> or convert to ONNX format using our exporter. Long sequence input is supported up to 96k timesteps via configuration file:
+                </p>
+
+                <pre><code class="language-json">
+                {
+                "context_window": 96000,
+                "rope_scaling": {
+                    "type": "pasture",
+                    "factor": 2.0
+                }
+                }
+                </code></pre>
+
+                <p>
+                    To disable detailed explanation mode (i.e., no causal trace), you can use:
+                </p>
+
+                <pre><code class="language-python">
+                output = model.predict(inputs, enable_reasoning=False)
+                </code></pre>
             </div>
 
             <div class="doc-section" id="evaluation">
