@@ -183,7 +183,12 @@ main {
   transition: background-color 0.3s ease;
   white-space: nowrap;
   margin-top: 5px;
+  display: inline-block;     
+  cursor: pointer;           
+  z-index: 1;                
+  position: relative;       
 }
+
 
 .arrow-button:hover {
   background-color: #0056b3;
