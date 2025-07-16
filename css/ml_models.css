@@ -6,6 +6,166 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.model-header {
+  background: linear-gradient(to right, #191919, #111);
+  padding: 25px 80px 10px;
+  border-bottom: 1px solid #222;
+}
+
+.model-header-content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.model-path {
+  font-size: 1.2em;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.publisher {
+  color: #999;
+}
+
+.slash {
+  margin: 0 5px;
+}
+
+.model-name {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.model-like-wrapper {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.like-bar {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 0.9em;
+  user-select: none;
+  overflow: hidden;
+}
+
+.like-button,
+.like-count {
+  all: unset;
+  padding: 5px 12px;
+  color: #d1d1d1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+.like-button {
+  gap: 6px;
+}
+
+.like-button.liked .like-icon {
+  color: #ff72a2;
+}
+
+.like-count {
+  font-weight: bold;
+  color: #fff;
+  border-left: 1px solid #444;
+}
+
+/* Likes Modal */
+.likes-modal {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #111;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 320px;
+  z-index: 1000;
+}
+
+.likes-modal-content {
+  padding: 20px;
+}
+
+.likes-modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.close-likes-modal {
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.likes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.likes-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #333;
+  color: #ccc;
+}
+
+.likes-list li:last-child {
+  border-bottom: none;
+}
+
+.model-tags {
+  margin: 10px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #292929;
+  padding: 4px 10px;
+  font-size: 0.75em;
+  color: #aad6ff;
+  border-radius: 16px;
+  border: 1px solid #444;
+}
+
+.model-tabs {
+  border-top: 1px solid #333;
+  padding-top: 12px;
+  display: flex;
+  gap: 30px;
+}
+
+.model-tabs a {
+  color: #aaa;
+  font-size: 0.9em;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.model-tabs a.active-tab {
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #4faaff;
+}
+
+
 .model-layout {
   display: flex;
   justify-content: space-between;
