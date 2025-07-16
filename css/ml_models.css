@@ -168,3 +168,18 @@ th, td {
 tbody tr:nth-child(even) {
   background-color: #111;
 }
+
+.doc-section h4 {
+  font-size: 1.1em;
+  margin-top: 25px;
+  color: #ccc;
+}
+
+.doc-section a {
+  color: #4faaff;
+  text-decoration: none;
+}
+
+.doc-section a:hover {
+  text-decoration: underline;
+}

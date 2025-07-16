@@ -50,6 +50,8 @@
                     <li><strong>Multispecies support:</strong> Trained across 4 cattle breeds and 2 regional goat populations for cross-farm deployment.</li>
                     </ul>
                 </div>
+
+                <p>For technical documentation and benchmarking results, see: <a href="#">docs.methazerox.ai</a></p>
             </div>
 
             <div class="doc-section" id="usage">
@@ -178,17 +180,43 @@ output = model.predict(inputs, enable_reasoning=False)
 
             <div class="doc-section" id="training">
                 <h3>Training</h3>
-                <p>Trained on 8M samples using synthetic augmentation. Curriculum-based training focused on seasonal and feed variability.</p>
-            </div>
 
-            <div class="doc-section" id="limitations">
+                <h4>Model</h4>
+                <ul>
+                    <li><strong>Architecture:</strong> Transformer decoder</li>
+                    <li><strong>Training samples:</strong> 8 million</li>
+                    <li><strong>Precision:</strong> bfloat16</li>
+                </ul>
+
+                <h4>Software & Hardware</h4>
+                <ul>
+                    <li><strong>GPUs:</strong> 96 A100 (40GB)</li>
+                    <li><strong>Training Framework:</strong> GreenTorch (custom PyTorch fork)</li>
+                    <li><strong>Data Pipeline:</strong> AgriFlow</li>
+                    <li><strong>Evaluation Framework:</strong> MethaBench</li>
+                    <li><strong>Post-training Tuner:</strong> COW-TRL (Causal Optimization Wrapper)</li>
+                </ul>
+
+                <h4>Open Resources</h4>
+                <ul>
+                    <li>The <strong>pretraining dataset</strong> includes livestock logs, pasture sensors, and fermentation logs from 4 countries.</li>
+                    <li>Model checkpoints and configs are available at <a href="#">agrisynth.org/models/methazerox</a></li>
+                </ul>
+                </div>
+
+                <div class="doc-section" id="limitations">
                 <h3>Limitations</h3>
-                <p>May not generalize well to rare cattle breeds or climates not represented in the training set.</p>
-            </div>
+                <p>
+                    MethaZeroX is trained primarily on structured agricultural data. It may produce inaccurate results when applied to exotic breeds, extreme climates, or feed types not included in the training corpus.
+                    Users should verify methane readings against actual sensor data and consult agronomists before deploying in critical decision-making systems.
+                </p>
+                </div>
 
-            <div class="doc-section" id="license">
+                <div class="doc-section" id="license">
                 <h3>License</h3>
-                <p>Open Source under Apache-2.0 License.</p>
+                <p>
+                    This model is released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>. You are free to use, modify, and distribute it with attribution.
+                </p>
             </div>
         </div>
 
