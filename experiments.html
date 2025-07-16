@@ -29,303 +29,74 @@
 
 <header class="model-header">
     <div class="model-path">
-        <span class="publisher">@AgriSynthAI</span>
-        <span class="slash">/</span>
-        <span class="model-name">MethaZeroX</span>
-        <div class="like-bar" id="likeBar">
-            <button class="like-button" id="likeButton">
-                <span class="like-icon">♡</span>
-                <span class="like-label">like</span>
-            </button>
-            <button class="like-count" id="likeCount">143</button>
-        </div>
-
-
-        <div class="likes-modal" id="likesModal">
-            <div class="likes-modal-content">
-                <div class="likes-modal-header">
-                    <span id="likesModalTitle">143 Likes</span>
-                    <span class="close-likes-modal" onclick="document.getElementById('likesModal').style.display='none'">×</span>
-                </div>
-                    <ul class="likes-list">
-                    <li>@cowboy123</li>
-                    <li>@grassguru</li>
-                    <li>@moo_tech</li>
-                    <li>@pasturePilot</li>
-                    <li>@ch4watcher</li>
-                    <li>@climateherder</li>
-                    <li>@greenruminant</li>
-                    <li>@haystacker</li>
-                </ul>
-            </div>
-        </div>
+        <span class="publisher">Metabolomic Workbench</span>
     </div>
 
     <div class="model-tags">
-      <span class="tag">🌱 Emissions</span>
-      <span class="tag">🐄 Livestock</span>
-      <span class="tag">8 regions</span>
-      <span class="tag">FP16</span>
-      <span class="tag">Apache 2.0</span>
+      <span class="tag">Data Repository</span>
     </div>
 
     <div class="model-tabs">
-      <a href="#" class="active-tab">Model Card</a>
-      <a href="#">Files</a>
-      <a href="#">Community</a>
+      <a href="#" class="active-tab">Analyze Studies</a>
     </div>
   </div>
 </header>
 
     <main class="model-layout">
         <div class="left-column">
-            <h1 class="model-title">MethaZeroX</h1>
-            <p class="org">@AgriSynthAI</p>
-            <img src="assets/MethaneZeroX.png" alt="MethaZeroX banner" class="model-banner"/>
-
-            <div class="toc">
-            <h2>Table of Contents</h2>
-            <ol>
-                <li><a href="#summary">Model Summary</a></li>
-                <li><a href="#usage">How to Use</a></li>
-                <li><a href="#evaluation">Evaluation</a></li>
-                <li><a href="#training">Training</a></li>
-                <li><a href="#limitations">Limitations</a></li>
-                <li><a href="#license">License</a></li>
-            </ol>
-            </div>
+            <!-- <h1 class="model-title">Molecular structure similarity analysis</h1> -->
 
             <div class="doc-section" id="summary">
-                <h3>Model Summary</h3>
+                <h3>Molecular structure similarity analysis</h3>
                 <p>
-                    MethaZeroX is a 1.2B parameter transformer model developed to analyze and reduce methane emissions in cattle farming. 
-                    Built on structured livestock telemetry and environmental data, MethaZeroX identifies key factors contributing to greenhouse gas output and predicts emission trends across diverse conditions. 
-                    The model is optimized for edge devices and supports low-power inference in real-time barnyard environments.
+                    This Structure similarity network tool creates a network map from a list of metabolite names by selecting a 
+                    fingerprint type (MACCSkeys, Chem.RDK, Topological, Morgan,MorganBitVector) and similarity method (Tanimoto, Dice) with a similarity coefficient cutoff.
                 </p>
-
+                <img src="assets/rdkit-experiment-page.png" class="model-banner"/>
                 <p>
-                    The model leverages an encoder-decoder architecture and was trained on a curated blend of feed-cycle logs, animal genomics, weather patterns, and methane sensor data. 
-                    Its pretraining involved over 8 billion records, using curriculum scheduling to simulate seasonal diet shifts and breed-specific metabolic profiles. 
-                    Fine-tuning included livestock-specific alignment techniques to maximize accuracy in pasture conditions.
-                </p>
-
-                <div class="key-features">
-                    <h4>Key Features</h4>
-                    <ul>
-                    <li><strong>Feed-aware reasoning:</strong> Adapts predictions based on nutritional inputs and ruminant digestion patterns.</li>
-                    <li><strong>Open science stack:</strong> Model weights, training pipelines, and benchmark scripts are fully open source.</li>
-                    <li><strong>Extended input range:</strong> Supports sequences up to 96k tokens for long-term livestock monitoring.</li>
-                    <li><strong>Multispecies support:</strong> Trained across 4 cattle breeds and 2 regional goat populations for cross-farm deployment.</li>
-                    </ul>
-                </div>
-
-                <p>For technical documentation and benchmarking results, see: <a href="#">docs.methazerox.ai</a></p>
-            </div>
-
-            <div class="doc-section" id="usage">
-                <h3>How to Use</h3>
-                <p>
-                    You can use MethaZeroX for real-time or batch methane estimation using structured input data. The model is available through the <code>methazerox</code> Python package and can also be served using ONNX, TorchScript, or vLLM-compatible APIs.
-                </p>
-
-                <p><strong>Installation:</strong></p>
-                <pre><code>pip install methazerox</code></pre>
-
-                <p><strong>Example usage:</strong></p>
-                <pre><code class="language-python">
-from methazerox import MethaZeroXModel, prepare_inputs
-
-model = MethaZeroXModel.from_pretrained("AgriSynthAI/MethaZeroX")
-inputs = prepare_inputs(feed_type="corn", cow_weight=620, temp_c=18.4)
-
-prediction = model.predict(inputs)
-print(f"Estimated CH₄ output: {prediction} ppm")
-                </code></pre>
-
-                <p><strong>Extended Features:</strong></p>
-                <ul>
-                    <li>Optional <code>enable_reasoning=True</code> flag for explainable output tracing.</li>
-                    <li>Supports <code>json</code>, <code>csv</code>, or live sensor streaming formats.</li>
-                    <li>Custom instructions supported via <code>system_config</code> (e.g. breed-specific tuning).</li>
-                </ul>
-
-                <p>
-                    For hardware deployment, use <code>torch.jit.trace()</code> or convert to ONNX format using our exporter. Long sequence input is supported up to 96k timesteps via configuration file:
-                </p>
-
-                <pre><code class="language-json">
-{
-    "context_window": 96000,
-    "rope_scaling": {
-        "type": "pasture",
-        "factor": 2.0
-    }
-}
-                </code></pre>
-
-                <p>
-                    To disable detailed explanation mode (i.e., no causal trace), you can use:
-                </p>
-
-                <pre><code class="language-python">
-output = model.predict(inputs, enable_reasoning=False)
-                </code></pre>
-            </div>
-
-            <div class="doc-section" id="evaluation">
-                <h3>Evaluation</h3>
-                <p>
-                    All evaluations were performed on zero-shot configurations using the standardized <code>AgriBench</code> and <code>GreenFarmEval</code> benchmarks. MethaZeroX is compared to peer models in terms of methane prediction accuracy, environmental generalization, and temporal stability.
-                </p>
-
-                <p><strong>Metrics:</strong></p>
-                <ul>
-                    <li><strong>MAE (Methane Error):</strong> Mean Absolute Error between predicted and actual methane ppm.</li>
-                    <li><strong>GSR (Generalization Score):</strong> Ability to adapt across farms and climates.</li>
-                    <li><strong>DRS (Drift Resistance Score):</strong> Robustness over multi-season deployments.</li>
-                </ul>
-
-                <h4>No Reasoning Mode</h4>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>MAE ↓</th>
-                        <th>GSR ↑</th>
-                        <th>DRS ↑</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><strong>MethaZeroX</strong></td>
-                        <td><strong>1.3</strong></td>
-                        <td><strong>91.7%</strong></td>
-                        <td><strong>94.2%</strong></td>
-                    </tr>
-                    <tr>
-                        <td>CowTrackLite</td>
-                        <td>2.1</td>
-                        <td>84.6%</td>
-                        <td>87.9%</td>
-                    </tr>
-                    <tr>
-                        <td>FarmSenseXL</td>
-                        <td>1.8</td>
-                        <td>88.1%</td>
-                        <td>90.3%</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <h4>With Reasoning Mode Enabled</h4>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>MAE ↓</th>
-                        <th>GSR ↑</th>
-                        <th>DRS ↑</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><strong>MethaZeroX</strong></td>
-                        <td><strong>1.1</strong></td>
-                        <td><strong>93.4%</strong></td>
-                        <td><strong>95.7%</strong></td>
-                    </tr>
-                    <tr>
-                        <td>FarmSenseXL</td>
-                        <td>1.6</td>
-                        <td>89.3%</td>
-                        <td>91.2%</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <p><em>↓ Lower is better, ↑ Higher is better</em></p>
-            </div>
-
-            <div class="doc-section" id="training">
-                <h3>Training</h3>
-
-                <h4>Model</h4>
-                <ul>
-                    <li><strong>Architecture:</strong> Transformer decoder</li>
-                    <li><strong>Training samples:</strong> 8 million</li>
-                    <li><strong>Precision:</strong> bfloat16</li>
-                </ul>
-
-                <h4>Software & Hardware</h4>
-                <ul>
-                    <li><strong>GPUs:</strong> 96 A100 (40GB)</li>
-                    <li><strong>Training Framework:</strong> GreenTorch (custom PyTorch fork)</li>
-                    <li><strong>Data Pipeline:</strong> AgriFlow</li>
-                    <li><strong>Evaluation Framework:</strong> MethaBench</li>
-                    <li><strong>Post-training Tuner:</strong> COW-TRL (Causal Optimization Wrapper)</li>
-                </ul>
-
-                <h4>Open Resources</h4>
-                <ul>
-                    <li>The <strong>pretraining dataset</strong> includes livestock logs, pasture sensors, and fermentation logs from 4 countries.</li>
-                    <li>Model checkpoints and configs are available at <a href="#">agrisynth.org/models/methazerox</a></li>
-                </ul>
-                </div>
-
-                <div class="doc-section" id="limitations">
-                <h3>Limitations</h3>
-                <p>
-                    MethaZeroX is trained primarily on structured agricultural data. It may produce inaccurate results when applied to exotic breeds, extreme climates, or feed types not included in the training corpus.
-                    Users should verify methane readings against actual sensor data and consult agronomists before deploying in critical decision-making systems.
-                </p>
-                </div>
-
-                <div class="doc-section" id="license">
-                <h3>License</h3>
-                <p>
-                    This model is released under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0 License</a>. You are free to use, modify, and distribute it with attribution.
+                    This feature is also implemented for each NMDR study containing 
+                    named metabolites (in 'Perform statistical analysis' section).
                 </p>
             </div>
-        </div>
 
-        <div class="right-column">
-            <div class="info-box merged-sidebar">
-
-                <div class="sidebar-section">
-                    <p class="info-title">📈 Deployments</p>
-                    <p><strong>Last month:</strong> 14,829</p>
-                </div>
-
-                <div class="sidebar-section">
-                    <p class="info-title">⚙️ Model Details</p>
-                    <p><strong>Parameters:</strong> 1.2B</p>
-                    <p><strong>Precision:</strong> FP16</p>
-                    <p><strong>Architecture:</strong> Transformer decoder</p>
-                    <p><strong>Size:</strong> ~6.2 GB</p>
-                </div>
-
-                <div class="sidebar-section">
-                    <p class="info-title">Inference</p>
-                    <p><strong>Formats:</strong> TorchScript, ONNX, vLLM</p>
-                    <p><strong>Latency:</strong> ~18ms avg (batch=1, A100)</p>
-                </div>
-
-                <div class="sidebar-section">
-                    <p class="info-title">Use Cases</p>
-                    <ul class="sidebar-list">
-                        <li>Livestock Monitoring</li>
-                        <li>Emission Forecasting</li>
-                        <li>Feed Efficiency Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-section">
-                    <p class="info-title">📦 Collections</p>
-                    <p><strong>MethaZeroX Suite</strong> (7 models)<br>Updated 5 days ago</p>
-                    <a href="#" class="box-link">View collection →</a>
-                </div>
+            <div class="MS-section" id="usage">
+                <h3>MS/NMR studies identifying named metabolites</h3>
+                <p>
+                    Analysis tools may also be accessed from within each study page using the 'Perform statistical analysis' link
+                </p>
             </div>
-        </div>
+
+            <div class="comparative-section" id="usage">
+                <h3>Comparative analysis across studies</h3>
+                <p>
+                    - Perform meta-analysis on selected studies (compare ratios of 2 selected metabolites)
+                    - Compare list of metabolites in 2 selected studies (all analyses)
+                    - Compare list of metabolites in 2 selected studies (individual analyses)                
+                </p>
+            </div>
+
+            <div class="untargeted-with-unknown-ion-section" id="usage">
+                <h3>MS untargeted experiments containing unidentified ions</h3>
+                <p>
+                    - Search Untargeted MS data by m/z, retention time, instrumentation
+                    - Superimpose unknown m/z on RefMet mass defect plot
+                </p>
+            </div>
+            
+            <div class="perform-analysis-section" id="usage">
+                <h3>Load and analyze your own dataset</h3>
+                <img src="assets/analysis-panel-experiment-img2.png" class="model-banner"/>
+                <p>
+                    Load and analyze your own dataset by MetENP
+                </p>
+
+                <p>
+                    UCSD Metabolomics Workbench, a resource sponsored by the Common Fund of the National Institutes of HealthThis repository is under review for potential modification in compliance with Administration directives
+                </p>
+
+            </div>
+
+
     </main>
 
 
